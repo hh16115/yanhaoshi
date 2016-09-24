@@ -1,0 +1,36 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 12px/1.5 "Microsoft yahei",arial, Simsun, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+img, fieldset {
+    border: none;
+    vertical-align: middle;
+}
+input, textarea {
+    font-size: 12px;
+}
+input[disabled]{color:#ccc!important;}
+table {
+    border-collapse: collapse;
+}
+a {
+    color: #3983e5;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5 {
+    font-family: "Times New Roman", Simsun;
+}
+ul, ol {
+    list-style: none;
+}
+input[type="button"], input[type="submit"] {
+    -webkit-appearance: none;
+}
+input[type="text"] {
+    border-radius: 0;
+}

@@ -5,8 +5,45 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 <title>黄汉&董芳-新婚快乐！</title>
 <meta name="description" content="黄汉&董芳-新婚快乐！" />
+<link rel="stylesheet" href="css/base/reset.css">
+<link rel="stylesheet" href="css/base/muicell.css">
+<link rel="stylesheet" href="css/item/index.css">
 </head>
 <body>
-Hello World!
+
+<div id="containerId" class="main muicell vertical">
+    <ul class="main-items muicell">
+        <li class="muicell main-item"></li>
+        <li class="main-items-line muicell shrink"></li>
+        <li class="muicell main-item"></li>
+        <li class="main-items-line muicell shrink"></li>
+        <li class="muicell main-item"></li>
+        <li class="main-items-line muicell shrink"></li>
+        <li class="muicell main-item"></li>
+    </ul>
+</div>
+
+<textarea id="rowItemsTplId">
+    <ul class="main-items muicell">
+        <li class="muicell main-item"></li>
+        <li class="main-items-line muicell shrink"></li>
+        <li class="muicell main-item"></li>
+        <li class="main-items-line muicell shrink"></li>
+        <li class="muicell main-item"></li>
+        <li class="main-items-line muicell shrink"></li>
+        <li class="muicell main-item"></li>
+    </ul>
+</textarea>
+
+<script src="js/base/zepto-1.2.0.min.js"></script>
+<script src="js/item/util.js"></script>
+<script src="js/item/index.js"></script>
+
+<script>
+    var index = new Index({
+        util: new Util()
+    });
+</script>
+
 </body>
 </html>

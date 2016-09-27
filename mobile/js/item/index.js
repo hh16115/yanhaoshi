@@ -31,11 +31,28 @@ Index.prototype = {
      */
     init: function() {
         var self = this, ops = this.options;
+        this.bindEvent();
         this.getAndSetContainerSize();
         ops.itemWidth = this.getItemWidth();
         ops.rows = this.getRows();
         this.render();
         this.setItemsImgBg();
+    },
+
+    /**
+     * 绑定事件
+     */
+    bindEvent: function () {
+        this.preventTouchMove();
+    },
+
+    /**
+     * 阻止手指触摸事件
+     */
+    preventTouchMove: function () {
+        $(document.body).on('touchmove', function (e) {
+            e.preventDefault();
+        });
     },
 
     /**
@@ -50,7 +67,7 @@ Index.prototype = {
     },
 
     /**
-     * 设置每一项的宽度
+     * 获取每一项的宽度
      */
     getItemWidth: function () {
         var self = this, ops = this.options;
@@ -67,6 +84,10 @@ Index.prototype = {
         return rows;
     },
 
+
+    /**
+     * 绘制主体图片内容
+     */
     render: function () {  
         var self = this, ops = this.options; 
         var html = '';

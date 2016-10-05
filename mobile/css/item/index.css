@@ -56,8 +56,23 @@
     margin-top: 8px;
 }
 
+.zan {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid #eb4f38;
+    z-index: 9999;
+    position: absolute;
+    background: url('../../img/zan.png') #fff no-repeat;
+    background-size: 22px 22px;
+    background-position: 9px 9px;
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
 
-
+.zan-animation {
+    transition: opacity 1s linear, transform 1s linear;
+}
 
 
 

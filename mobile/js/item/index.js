@@ -44,6 +44,7 @@ Index.prototype = {
      */
     bindEvent: function () {
         this.preventTouchMove();
+        this.bindEventZanClick();
     },
 
     /**
@@ -53,6 +54,74 @@ Index.prototype = {
         $(document.body).on('touchmove', function (e) {
             e.preventDefault();
         });
+    },
+
+    /**
+     * 点赞的点击事件
+     */
+    bindEventZanClick: function () {
+        var self = this;
+        $('#zanId').on('click', function (e) {
+            self.createZanDom();
+        });
+    },
+
+    /**
+     * 创建点赞特效节点
+     * @return {[type]} [description]
+     */
+    createZanDom: function () {
+        var zan = $('<div class="zan"></div>').appendTo(document.body);
+        var left = $('#zanId').offset().left;
+        var top = $('#zanId').offset().top;
+        zan.css({
+            left: left,
+            top: top
+        });
+        zan[0].className += ' zan-animation';
+        //this.beganZanBubble(zan, left, top);
+        zan.css({
+            transform: 'translate3d(-60px, -200px, 0)'
+        });
+        setTimeout(function () {
+            zan.css({
+                transform: 'translate3d(0, -400px, 0)'
+            });
+        }, 1000);
+    },
+
+    beganZanBubble: function (zan, left, top) {
+        var toTop = top - 200;
+        var toLeftL = left - 50;
+        var toLeftR = left + 50;
+        setTimeout(function () {
+            top--;
+            var opacity = (top - toTop) / 200;
+            zan.css({
+                top: top,
+                opacity: opacity
+            });
+            if (top < toTop) {
+                zan.remove();
+                return;
+            }
+            setTimeout(arguments.callee, 10);
+        }, 10);
+
+        setTimeout(function () {
+            if (left < toLeftL) {
+                left--;
+            } else if (left > toLeftR) {
+                left++;
+            } else {
+                left--;
+            }
+            zan.css({
+                left: left
+            })
+            setTimeout(arguments.callee, 10);
+        }, 10);
+
     },
 
     /**

@@ -6,7 +6,7 @@ body {cursor:crosshair;margin:0; padding:0; position:absolute; overflow:hidden; 
 </style>
 <script type="text/javascript"><!--
 var object = new Array();
-nbfm   = 60;
+nbfm   = 3;
 var xm = 0;
 var ym = 9999;
 var nx = 0;
@@ -44,6 +44,7 @@ function CObj(N,img,w,h){
     this.obj.src = img.src;
     this.obj.style.position = "absolute";
     this.obj.style.left = -1000;
+    this.obj.style.width = '50px';
     document.body.appendChild(this.obj);
     this.N  = N;
     this.x0 = 0;
@@ -83,15 +84,24 @@ onload = function() {
     run();
 }
 
-//-->
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 </head>
 <body>
 <div id="bubbles" style="visibility:hidden">
-    <img src="/mobile/img/dan.png">
-    <img src="/mobile/img/gift.png">
-    <img src="/mobile/img/pic.png">
-    <img src="/mobile/img/zan.png">
+    <img src="mobile/img/zan.png" style="width:50px,height:50px" />
 </div>
 </body>
 </html>

@@ -6,7 +6,7 @@ body {cursor:crosshair;margin:0; padding:0; position:absolute; overflow:hidden; 
 </style>
 <script type="text/javascript"><!--
 var object = new Array();
-nbfm   = 3;
+nbfm   = 1;
 var xm = 0;
 var ym = 9999;
 var nx = 0;
@@ -25,6 +25,8 @@ function movbulb(){
         xx *= 0.99;
         yy *= 0.99;
 
+        console.log(x0, y0, p, xx)
+
         x0 = Math.round(x0 + Math.cos(y0 / 15) * p) + xx;
         y0+= yy - v;
 
@@ -33,7 +35,6 @@ function movbulb(){
             x0 = nx/2-100 + Math.random() * 100;
             ec = 0;
         }
-
         obj.style.top  = y0 - h;
         obj.style.left = x0 - w;
     }
@@ -71,7 +72,7 @@ document.onmousemove = function(e){
 
 function run(){
     for(i in object)object[i].movbulb();
-    setTimeout(run, 16);
+    setTimeout(run, 1000);
 }
 
 onload = function() {

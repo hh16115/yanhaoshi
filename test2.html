@@ -1,84 +1,79 @@
- <html>
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="ie7 old-ie no-js" lang="en"> <![endif]-->
+<!--[if lte IE 8]>     <html class="old-ie no-js" lang="en">     <![endif]-->
+<!--[if gt IE 8]><!--> <html class="not-ie no-js" lang="en">     <!--<![endif]-->
 <head>
-<title>JS实现气泡从水中急速上升效果</title>
-<style type="text/css">
-body {cursor:crosshair;margin:0; padding:0; position:absolute; overflow:hidden; background:#FFF; left:0; top:0; width:100%; height:100%;}
-</style>
-<script type="text/javascript">
-var object = new Array();
-nbfm   = 1;
-var xm = 0;
-var ym = 9999;
-var nx = 0;
-var ny = 0;
-function movbulb(){
-with (this) {
-if(ec < 20){
-if(Math.abs(x0 - xm) < 100 && Math.abs(y0 - ym) < 100){
-xx = (xm - x0) / 8;
-yy = (ym - y0) / 8;
-ec++;
-}
-}
-xx *= 0.99;
-yy *= 0.99;
-x0 = Math.round(x0 + Math.cos(y0 / 15) * p) + xx;
-y0+= yy - v;
-if(y0 < -h * 2 || x0 < -w * 2 || x0 > nx + w * 2){
-y0 = ny + N + h * 2;
-x0 = nx/2-100 + Math.random() * 100;
-ec = 0;
-}
-obj.style.top  = y0 - h;
-obj.style.left = x0 - w;
-}
-}
-function CObj(N,img,w,h){
-this.obj = document.createElement("img");
-this.obj.src = img.src;
-this.obj.style.position = "absolute";
-this.obj.style.left = -1000;
-document.body.appendChild(this.obj);
-this.N  = N;
-this.x0 = 0;
-this.y0 = -1000;
-this.v  = 1 + Math.round((80 / h) * Math.random());
-this.p  = 1 + Math.round((w / 1) * Math.random());
-this.xx = 0;
-this.yy = 0;
-this.ec = 0;
-this.w  = w;
-this.h  = h;
-this.movbulb = movbulb;
-}
-function resize(){
-nx = document.body.offsetWidth;
-ny = document.body.offsetHeight;
-}
-onresize = resize;
-document.onmousemove = function(e){
-if (window.event) e = window.event;
-xm = document.body.scrollLeft+(e.x || e.clientX);
-ym = document.body.scrollTop+(e.y || e.clientY);
-}
-function run(){
-for(i in object)object[i].movbulb();
-setTimeout(run, 16);
-}
-onload = function() {
-PIC = document.getElementById("bubbles").getElementsByTagName("img");
-resize();
-for(nbf=0;nbf<nbfm;nbf++){
-sf = PIC[nbf%PIC.length];
-object[nbf] = new CObj(nbf,sf,sf.width/2,sf.height/2);
-}
-run();
-}
-</script>
+    <style>
+        body{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            padding: 0;
+            width: 100%;
+        }
+        
+        .viewlist{
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="/gb/networks/themes/css/all.min.css?version=20130804beta" type="text/css" media="screen" />
+    <script type='text/javascript' src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/gb/networks/themes/js/jquery-1.7.1.min.js?version=20130804beta"><\/script>')</script>
+    <script src="/gb/networks/themes/js/jresize.min.js?version=20130804beta"></script>
+    <script>
+      var global_contextPath = '/gb';
+      //function to fix height of iframe!
+      var calcHeight = function() {
+        var headerDimensions = $('#header-bar').outerHeight();
+        $('#preview-frame').height($(window).height() - headerDimensions);
+      }
+      $(window).load(function() {
+        calcHeight();
+        $('#header-bar a.close').mouseover(function() {
+          $('#header-bar a.close').addClass('activated');
+        }).mouseout(function() {
+          $('#header-bar a.close').removeClass('activated');
+        });
+      });
+
+      $(window).resize(function() {
+        calcHeight();
+      }).load(function() {
+        calcHeight();
+      });
+    </script>
+    
+    
+    <script>
+    $(function() {
+        $.jResize({
+             viewPortSizes   : ['320px', '480px', '540px', '600px', '768px', '960px', '1024px', '1280px', '1920px'], // ViewPort Widths
+             backgroundColor : 'F8F8F8', // HEX Code
+             fontColor       : '777777', // HEX Code
+             postid: '4012'
+        });
+    });
+    </script>
+
 </head>
+
 <body>
-<div id="bubbles" style="visibility:hidden">
-<img src="/balloon.png">
-</div>
+
+   <!--
+   <div id="header-bar">
+    <div class="close-header">
+    <a id="close-button" class="close" href="/gb/share/4012.htm" title="Close Bar">X</a>
+    </div>
+    
+    <p class="meta-data">
+       <a class="close" href="/gb/share/4012.htm">返回相关文章</a>
+    </p>
+
+    <a class="athemeforest-preview-logo site-loopback" href="/gb/share/4012.htm">返回相关文章</a><span class="preview">gbtags.com</span>
+   </div>
+   -->
+   <iframe id="preview-frame" height="1000" src="/gb/networks/uploads//3b172577-5c08-4704-8bfc-2e18116dc341.html" name="preview-frame" frameborder="0" noresize="noresize"></iframe>
+
+<iframe src="/gb/networks/gbdemotongji.html"></iframe>
 </body>
-</html><div style="text-align:center;margin:30px 0 0 0;"><hr style="color:#999;height:1px;">如不能显示效果，请按Ctrl+F5刷新本页，更多网页代码：<a href='http://www.veryhuo.com/' target='_blank'>http://www.veryhuo.com/</a></div>
+</html>

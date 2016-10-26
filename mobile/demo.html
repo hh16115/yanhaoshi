@@ -11,6 +11,9 @@
 </head>
 <body>
 
+<audio style="display: none;" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="../music/marry_you1.mp3">
+</audio>
+
 <div id="containerId" class="main muicell vertical">
     <ul class="main-items muicell">
         <li class="muicell main-item"></li>
@@ -58,13 +61,21 @@
     </ul>
 </textarea>
 
+<textarea id="zanTplId">
+    <span class="zan muicell center">
+        <i class="iconfont">&#xe603;</i>
+    </span>
+</textarea>
+
 <script src="js/base/zepto-1.2.0.min.js"></script>
 <script src="js/item/util.js"></script>
+<script src="js/item/index_zan.js"></script>
 <script src="js/item/index.js"></script>
 
 <script>
     var index = new Index({
-        util: new Util()
+        util: new Util(),
+        zan: new Zan()
     });
 </script>
 

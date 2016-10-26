@@ -37,6 +37,7 @@ function moveFloatingImages(obj){
     var newXPosition = xPosition + 20*Math.sin(thetaRadians0);
     obj.style.top = yPosition + "px";
     obj.style.left = newXPosition + "px";
+    //console.log('left:'+newXPosition, 'thetaStep:'+thetaRadians0)
     setTimeout(function () {
         moveFloatingImages(obj);
     }, 10);
